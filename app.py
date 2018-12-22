@@ -38,7 +38,7 @@ class Twitter:
 
 if __name__ == "__main__":
     # 各自で適当に処理を書いてください。
+    spotify = Spotify()
     twitter = Twitter(consumer_key, consumer_secret, access_key, access_secret)
-    now_play = Spotify().GetNowPlayingMusic()
-    first_music_name = now_play['item']['name']
-    twitter.PostNowPlayingMusic(now_play)
+    now_playing_json = spotify.GetNowPlayingMusic()
+    twitter.PostNowPlayingMusic(now_play_json)
