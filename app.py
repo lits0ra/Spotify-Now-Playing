@@ -35,24 +35,8 @@ class Twitter:
         self.api.update_status(tweet_text)
 
 if __name__ == "__main__":
-    # 汚いので改善します。とりあえず動ける形にしました。
-    num = 1
+    # 各自で適当に処理を書いてください。
     twitter = Twitter(consumer_key, consumer_secret, access_key, access_secret)
     now_play = Spotify().GetNowPlayingMusic()
     first_music_name = now_play['item']['name']
     twitter.PostNowPlayingMusic(now_play)
-    while 1:
-        # 見てられない
-        if num == 1:
-            time.sleep(0.1)
-            now_play = Spotify().GetNowPlayingMusic()
-            if first_music_name == now_play['item']['name']:
-                pass
-            else:
-                twitter.PostNowPlayingMusic(now_play)
-                num = num + 1
-        else:
-            print("Sleep...")
-            time.sleep(now_play['item']['duration_ms'] / 1000.0 + 0.01)
-            now_play = Spotify().GetNowPlayingMusic()
-            twitter.PostNowPlayingMusic(now_play)
