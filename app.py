@@ -1,6 +1,8 @@
 import requests
 import tweepy
-import json, time
+import json
+import time
+
 class Spotify:
     def GetNowPlayingMusic(self):
         end_point = "https://api.spotify.com/v1/me/player/currently-playing"
