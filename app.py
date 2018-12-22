@@ -28,7 +28,6 @@ class Twitter:
     
     def PostNowPlayingMusic(self, json):
         # 汚いので改善します。
-        print(json)
         tweet_text = "Now Playing #Spotify \nMusic Name: %s \nArtist Name: %s %s" \
                         % (json['item']['name'],
                             json['item']['artists'][0]["name"],
