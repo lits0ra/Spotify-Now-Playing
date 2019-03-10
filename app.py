@@ -5,7 +5,7 @@ import time
 
 class Spotify:
     def GetNowPlayingMusic(self):
-        end_point = "https://api.spotify.com/v1/me/player/currently-playing"
+        END_POINT = "https://api.spotify.com/v1/me/player/currently-playing"
         headers = {
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -14,8 +14,8 @@ class Spotify:
         params = (
             ('market', 'ES'),
         )
-        response = requests.get(end_point, headers=headers, params=params)
-        return response.json()
+        r = requests.get(end_point, headers=headers, params=params)
+        return r.json()
         
     
 class Twitter:
@@ -27,7 +27,7 @@ class Twitter:
         self.api = tweepy.API(self.auth)
     
     def PostNowPlayingMusic(self, json):
-        # 汚いので改善します。
+        # 各自で適当に書いてください。
         tweet_text = "Now Playing #Spotify \nMusic Name: %s \nArtist Name: %s %s" \
                         % (json['item']['name'],
                             json['item']['artists'][0]["name"],
